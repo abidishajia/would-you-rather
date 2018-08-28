@@ -61,7 +61,7 @@ class NewQuestion extends PureComponent {
     const { optionOne, optionTwo } = this.state
     this.props.addPoll(optionOne, optionTwo)
     const { history } = this.props
-    history.push('/')
+    history.push('/dashboard')
   }
 
   render() {

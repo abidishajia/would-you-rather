@@ -50,7 +50,7 @@ class Login extends PureComponent {
     const { users, classes } = this.props;
     const { userId, redirectToReferrer} = this.state;
 
-    const { from } = this.props.location.state || { from: { pathname: '/' } }
+    const { from } = this.props.location.state || { from: { pathname: '/dashboard' } }
   
     if (redirectToReferrer) {
       return (

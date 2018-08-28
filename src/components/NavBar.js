@@ -63,13 +63,13 @@ class NavBar extends PureComponent {
 
          <AppBar position="static">
             <Toolbar>
-              <Typography variant="title" color="inherit">
-                  <Link to= '/'>
-                      <HomeIcon className={classes.icon} color="secondary"/>
-                  </Link> 
-              </Typography>
               { authedUser &&
                   <Fragment>
+                  <Typography variant="title" color="inherit">
+                    <Link to= '/dashboard'>
+                        <HomeIcon className={classes.icon} color="secondary"/>
+                    </Link> 
+                  </Typography>
                     <Typography variant="title" color="inherit" className={classes.menuButton}>
                           <Link to= '/add'> New Question |  </Link>  
                     </Typography>

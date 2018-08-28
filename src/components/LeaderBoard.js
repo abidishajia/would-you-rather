@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import Avatar from '@material-ui/core/Avatar';
 import { withStyles } from '@material-ui/core/styles';
@@ -28,7 +28,7 @@ const styles = theme => ({
   }
 });
 
-class LeaderBoard extends PureComponent {
+class LeaderBoard extends Component {
 
   render() {
     const { classes, board } = this.props
