@@ -117,6 +117,13 @@ class QuestionDetails extends PureComponent {
 function mapStateToProps ({ polls, users, authedUser }, props) {
   const { id } = props.match.params
   const poll = polls[id]
+
+  if (typeof poll === "undefined") {
+    return {
+      notFound: true
+    };
+  }
+
   const pollAuthor = users[poll.author];
   const authorURL = pollAuthor.avatarURL
   const authorName = pollAuthor.name
@@ -140,7 +147,7 @@ function mapStateToProps ({ polls, users, authedUser }, props) {
     percOneLength,
     percTwoLength,
     authorURL,
-    authorName
+    authorName,
   }
 }
 

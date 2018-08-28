@@ -4,15 +4,15 @@ import { Route, Redirect } from 'react-router-dom';
 
 
 function PrivateRoute({ component: Component, ...rest }) {
-  const { authUser } = rest;
+  const { authedUser } = rest;
   return (
     <Route
       {...rest}
       render={props => (
-        authUser !== null
+        authedUser !== null
           ? <Component {...props} />
           : <Redirect to={{
-              pathname: '/login',
+              pathname: '/',
               state: { from: props.location.pathname } ,
             }}
           />
@@ -21,9 +21,9 @@ function PrivateRoute({ component: Component, ...rest }) {
   );
 }
 
-function mapStateToProps({ authUser }) {
+function mapStateToProps({ authedUser }) {
   return {
-    authUser,
+    authedUser,
   };
 }
 

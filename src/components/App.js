@@ -1,5 +1,5 @@
-import React, { Component, Fragment } from 'react';
-import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
 import Dashboard from './Dashboard'
 import QuestionDetails from './QuestionDetails'
@@ -20,7 +20,6 @@ class App extends Component {
   }
 
   render() {
-    const { loggedOut } = this.props
 
     return (
 
