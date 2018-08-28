@@ -1,7 +1,4 @@
 import { SET_AUTHED_USER, UNSET_AUTHED_USER }  from './index'
-import { showLoading, hideLoading } from 'react-redux-loading'
-import { getAuthUsers } from '../utils/api';
-
 
 export function setAuthedUser (id) {
   return {

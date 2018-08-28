@@ -29,12 +29,20 @@ class App extends PureComponent {
             <div className="container">
               <Switch>
                 {
-                  loggedOut ? <Route path='/' exact component={Login} /> :
+                  loggedOut ? 
+                  <Fragment>
+                    <Route path='/' exact component={Login} /> 
+                    <Route path='/questions/:id' component={Login} />
+                    <Route path='/add' component={Login} />
+                    <Route path='/leaderboard' component={Login} />
+                  </Fragment>
+                  :
                   <Fragment>
                     <Route path='/' exact component={Dashboard} />
                     <Route path='/questions/:id' component={QuestionDetails} />
                     <Route path='/add' component={NewQuestion} />
                     <Route path='/leaderboard' component={LeaderBoard} />
+                    
                   </Fragment>
                 }
                 <Route component={Error} />

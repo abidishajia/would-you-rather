@@ -9,6 +9,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import { Redirect } from 'react-router-dom';
 
 const styles = {
   avatar: {
@@ -31,7 +32,8 @@ const styles = {
 class Login extends PureComponent {
 
   state = {
-    userId : ''
+    userId : '',
+    redirectToReferrer: false
   }
 
   onUserChange = (userId) => { this.setState({ userId })}
@@ -39,11 +41,22 @@ class Login extends PureComponent {
   login = () => {
     const { userId } = this.state;
     this.props.dispatch(setAuthedUser(userId))
+    this.setState({ redirectToReferrer: true })
   }
+
+  
 
   render() {
     const { users, classes } = this.props;
-    const { userId } = this.state;
+    const { userId, redirectToReferrer} = this.state;
+
+    const { from } = this.props.location.state || { from: { pathname: '/' } }
+  
+    if (redirectToReferrer) {
+      return (
+        <Redirect to={from} />
+      )
+    }
 
     return (
       <div style={{textAlign: 'center', marginTop: '200px'}}>
@@ -80,9 +93,10 @@ class Login extends PureComponent {
   }
 }
 
-function mapStateToProps ({ users }) {
+function mapStateToProps ({ users, authedUser }) {
   return {
-    users
+    users,
+    authedUser
   }
 }
 
